@@ -1,0 +1,50 @@
+. {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0rem 0rem;
+}
+
+:root {
+    --primary-color: #8B5CF6;
+
+}
+.navigation {
+    text-align: center;
+    background-color: var(--primary-color);
+    min-height: 2rem;
+    width: 100%;
+}
+
+.container {
+    width: 100%;
+    min-height: 10rem;
+    padding: 3rem 3rem;
+    text-align: center;
+    align-items: center;
+    align-content: center;
+}
+
+.container input {
+    display: block;
+}
+
+.container li {
+    list-style-type: none;
+}
+
+
+.container li div{
+    display: inline;
+    min-width:  1rem;
+    padding: 0.5rem 0.5rem;
+    text-align: left;
+}
+
+
+.footer {
+    background-color: var(--primary-color);
+    min-height: 2rem;
+    width: 100%;
+}
