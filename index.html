@@ -19,43 +19,24 @@
         <div>
             <div>Enter the Bill Amount...</div>
             <input type="number" id="bill-amount" placeholder="0"/>
+            <div id="bill-amt-warn" class="warning"></div>
         </div>
-
+        <br/>
         <div>
             <div>Cash given.</div>
-            <input type="number" id="cash-given-out" placeholder="0"/>
+            <input type="number" id="cash-given-out" placeholder="0" disabled/>
+            <div id="cash-given-warn" class="warning"></div>
         </div>
 
         <div>
             <ul id="note-holder">
-                <li>
-                    <div>2000</div><div>0</div>
-                </li>
-                <li>
-                    <div>500</div><div>0</div>
-                </li>
-                <li>
-                    <div>100</div><div>0</div>
-                </li>
-                <li>
-                    <div>20</div><div>0</div>
-                </li>
-                <li>
-                    <div>10</div><div>0</div>
-                </li>
-                <li>
-                    <div>5</div><div>0</div>
-                </li>
-                <li>
-                    <div>1</div><div>0</div>
-                </li>
             </ul>
 
         </div>
     </div>
 
     <footer class="footer">
-
+        <div>A simple cash register to manage the cash.</div>
     </footer>
 
     <script src="/app.js" type="text/javascript"></script>
