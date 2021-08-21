@@ -1,4 +1,11 @@
 
+const tableHeaders = 
+`
+<tr>
+    <th>Notes</th>
+    <th>No. Of Notes</th>
+</tr>
+`;
 
 let billAmountDoc = document.querySelector('#bill-amount');
 let cashGivenOutDoc = document.querySelector('#cash-given-out');
@@ -19,15 +26,28 @@ let notesDenominationDict = {
     1: '0',
 };
 
+function resetNoteHolderTable() {
+    notes.forEach((note) => {
+        notesDenominationDict[note] = 0;
+    });
+    refreshNotesDisp();
+}
 
 function refreshNotesDisp() {
-    noteHolder.innerHTML = "";
+    noteHolder.innerHTML = tableHeaders;
     notes.forEach(note => {
+        // noteHolder.innerHTML = noteHolder.innerHTML +
+        // `
+        // <li>
+        //     <div>${note}</div><div>${notesDenominationDict[note]}</div>
+        // </li>
+        // `    
         noteHolder.innerHTML = noteHolder.innerHTML +
         `
-        <li>
-            <div>${note}</div><div>${notesDenominationDict[note]}</div>
-        </li>
+            <tr>
+                <td>${note}</td>
+                <td>${notesDenominationDict[note]}</td>
+            </tr>
         `       
     });
 }
@@ -42,21 +62,23 @@ function onChangeHandler(e) {
             billAmountWarn.innerHTML = "";
 
             billAmount = e.target.value
-            
-            if(parseInt(billAmount, 10) > 0) {
-                if(billAmount === '') {
-                    cashGivenOutDoc.value = 0;
-                    cashGivenOutDoc.disabled = true;
-                    noteHolder.innerHTML = "";
+            if(billAmount === '') {
+                cashGivenOutDoc.value = 0;
+                cashGivenOutDoc.disabled = true;
+                //noteHolder.innerHTML = "";
+                resetNoteHolderTable();
+            }
+            else{
+                if(parseInt(billAmount, 10) > 0) {
+                    
+                    cashGivenOutDoc.disabled = false;
+                    
+                    console.log(billAmount)
                 }
                 else {
-                    cashGivenOutDoc.disabled = false;
+                    billAmountWarn.style.display = "block";
+                    billAmountWarn.innerHTML = "Enter Non-Negative Bill Amount.";
                 }
-                console.log(billAmount)
-            }
-            else {
-                billAmountWarn.style.display = "block";
-                billAmountWarn.innerHTML = "Enter Non-Negative Bill Amount.";
             }
 
             break;
