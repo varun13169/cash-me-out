@@ -7,15 +7,15 @@ const tableHeaders =
 </tr>
 `;
 
-let billAmountDoc = document.querySelector('#bill-amount');
-let cashGivenOutDoc = document.querySelector('#cash-given-out');
-let billAmountWarn = document.querySelector('#bill-amt-warn');
-let cashGivenOutWarn = document.querySelector('#cash-given-warn');
-let noteHolder = document.querySelector('#note-holder');
+const billAmountDoc = document.querySelector('#bill-amount');
+const cashGivenOutDoc = document.querySelector('#cash-given-out');
+const billAmountWarn = document.querySelector('#bill-amt-warn');
+const cashGivenOutWarn = document.querySelector('#cash-given-warn');
+const noteHolder = document.querySelector('#note-holder');
 let billAmount = 0;
 let cashGivenOut = 0;
 
-let notes = [2000, 500, 100, 20, 10, 5, 1];
+const notes = [2000, 500, 100, 20, 10, 5, 1];
 let notesDenominationDict = {
     2000: '0',
     500: '0',
@@ -26,14 +26,12 @@ let notesDenominationDict = {
     1: '0',
 };
 
-function resetNoteHolderTable() {
-    notes.forEach((note) => {
-        notesDenominationDict[note] = 0;
-    });
+const resetNoteHolderTable = () => {
+    notes.forEach(note => notesDenominationDict[note] = 0);
     refreshNotesDisp();
 }
 
-function refreshNotesDisp() {
+const refreshNotesDisp = () => {
     noteHolder.innerHTML = tableHeaders;
     notes.forEach(note => {
         // noteHolder.innerHTML = noteHolder.innerHTML +
@@ -52,9 +50,9 @@ function refreshNotesDisp() {
     });
 }
 
-function onChangeHandler(e) {
-    let targetId = e.target.id;
-    let targetValue;
+const onChangeHandler = e => {
+    const targetId = e.target.id;
+    const targetValue;
 
     switch(targetId) {
         case 'bill-amount':
